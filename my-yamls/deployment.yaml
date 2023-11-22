@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: amigoscode/kubernetes:hello-world-v4
+          image: amv4igoscode/kubernetes:hello-world-
           resources:
             limits:
               memory: "128Mi"
