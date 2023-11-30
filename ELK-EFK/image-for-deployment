@@ -1,0 +1,11 @@
+--replicas=2
+--image=ashokit/sb-logger-app
+--service=LoadBalancer
+--containerPort=8080
+--service port=80
+--open 5601 to all on the SG OF THE LoadBalancer of KIBANA
+--LoadBalancer:5601 on browser to access kibana----->Explore on my own------>Discovery----->index pattern[*]------>Next------->select filter field[@timestamp]---->Create index pattern
+--Click on Discovery again and the dashboard will load....
+--Search for product
+
+--On the application create new product again Now refresh kibana to get the logs....

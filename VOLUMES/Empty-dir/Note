@@ -1,0 +1,5 @@
+--FOR EMPTYDIR
+--Note: two container is running in the pod.....
+--lets check the logs
+--$kubectl logs <pods-name> -c <container-name>    #-C Maens container
+--$kubectl exec -it <pods-name> -c <container-name> -- sh #How to login to a container

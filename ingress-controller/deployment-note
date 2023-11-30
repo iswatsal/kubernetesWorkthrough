@@ -1,0 +1,31 @@
+$kubectl apply -f 01-ingress-deployment.yaml
+
+$kubectl get all -n demo-ingress
+
+Note: change the service type to NodePort and finally to LoadBalancer
+
+$kubectl get all -n demo-ingress
+
+Note: Copy the loadbalancer dns to browser
+
+Note: resolve the LB to a Domain-Name in Route53
+
+Note: Change it back to ClusterIp
+
+Note: install nginx ingress controller = https://kubernetes.github.io/ingress-nginx/deploy/
+
+Note: edit the : proxy-real-ip-cidr: XXX.XXX.XXX/XX and also the : arn:aws:acm:us-west-2:XXXXXXXX:certificate/XXXXXX-XXXXXXX-XXXXXXX-XXXXXXXX then apply the ingress-controller
+
+$kubectl apply -f 02-ingress-controller-deployment.yaml
+
+$kubectl get all -n ingress-nginx
+
+Note: Copy the loadbalancer dns to browser (to check the ingres controller nginx page)
+
+Note: lets create the nginx rule
+
+$kubectl apply -f 03-ingress-rule.yaml
+
+$kubectl get ingress -n demo-ingress
+
+$kubectl describe ing -n demo-ingress <ingress-name>

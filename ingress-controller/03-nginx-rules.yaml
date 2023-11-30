@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  namespace: demo-ingress
+  labels:
+    name: myingress
+spec:
+  rules:
+  - host: <Host> #your A-record and domain name (www.domainname.com)
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: <Service> #service name of your deployment
+            port: 
+              number: 80 #port of your service

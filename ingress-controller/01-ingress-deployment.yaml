@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo-ingress
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app
+  namespace: demo-ingress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+      - name: demo-app
+        image: jassyboy/roadmapdevops:V1
+        resources:
+          limits:
+            memory: "512Mi"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-app-svc
+  namespace: demo-ingress
+spec:
+  type: ClusterIP
+  selector:
+    app: demo-app
+  ports:
+  - port: 80
+    targetPort: 80
+
